@@ -4,8 +4,8 @@ const getMovies = async () => {
         const response = await fetch(`https://api.themoviedb.org/3/discover/movie?api_key=360102dcfe47ebec07cd40463cf86c02&count=10&page=${moviePageNumber}`)
         const {results} = await response.json()
         return results
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        console.log(err)
     }
 }
 
@@ -15,8 +15,8 @@ const getMovieDetails = async () => {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${movieID}?api_key=360102dcfe47ebec07cd40463cf86c02`)
         const data = await response.json()
         return data
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        console.log(err)
     }
 }
 
@@ -28,8 +28,8 @@ const getShows = async () => {
         const response = await fetch(`https://api.themoviedb.org/3/discover/tv?api_key=360102dcfe47ebec07cd40463cf86c02&page=${tvShowPageNumber}`)
         const {results} = await response.json()
         return results
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        console.log(err)
     }
 }
 
