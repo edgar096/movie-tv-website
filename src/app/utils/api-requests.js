@@ -39,8 +39,8 @@ const getShowDetails = async () => {
         const response = await fetch(`https://api.themoviedb.org/3/tv/${tvShowID}?api_key=360102dcfe47ebec07cd40463cf86c02`)
         const data = await response.json()
         return data
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        console.log(err)
     }
 }
 
