@@ -1,4 +1,4 @@
-#movie-poster{
+#poster{
   max-width: 300px;
   height: auto;
 }
@@ -8,7 +8,9 @@
   height: auto;
 }
 
-#movie-card-div{
+
+/* Change to card-div */
+#movie-card-div{ 
   max-width: 1200px; 
 }
 
