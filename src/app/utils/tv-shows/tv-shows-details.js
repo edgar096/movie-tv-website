@@ -1,11 +1,11 @@
-tvShowID = location.hash.substring(1)
+tvShowID = location.hash.substring(1);
 
-getShowDetails().then((item)=>{
-    domCard(item)
-})
+getShowDetails().then((item) => {
+  domCard(item, "show");
+});
 
-clearCart()
+clearCart();
 
-document.querySelector('#website-redirector').addEventListener('click',(e)=>{
-    location.assign("./tv-shows.html")
-})
+document.querySelector("#website-redirector").addEventListener("click", (e) => {
+  location.assign("./tv-shows.html");
+});

@@ -1,13 +1,11 @@
-movieID = location.hash.substring(1)
+movieID = location.hash.substring(1);
 
-getMovieDetails().then((item)=>{
-    domCard(item,'movie')
-})
+getMovieDetails().then((item) => {
+  domCard(item, "movie");
+});
 
+clearCart();
 
-clearCart()
-
-
-document.querySelector('#website-redirector').addEventListener('click',(e)=>{
-    location.assign("./movie-website.html")
-})
+document.querySelector("#website-redirector").addEventListener("click", (e) => {
+  location.assign("./movie-website.html");
+});

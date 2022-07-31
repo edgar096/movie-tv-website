@@ -1,21 +1,14 @@
-//Website Filters
-const filters = {
-  searchText: "",
-};
-
 // Rendering Function
 const renderItems = (items, filters) => {
   const filteredItems = items.filter((item) => {
-    return item.name
-      .toLowerCase()
-      .includes(filters.searchText.toLowerCase())
+    return item.name.toLowerCase().includes(filters.searchText.toLowerCase());
   });
 
   document.getElementById("item-div").innerHTML = "";
 
   filteredItems.forEach((item) => {
     //Run the DOM Generating Function for each item in the API response
-    renderItemDOM(item,'show');
+    renderItemDOM(item, "show");
   });
 };
 
@@ -26,10 +19,6 @@ const tvShowRequest = () => {
   });
 };
 tvShowRequest();
-
-
-
-
 
 //Title sorting function (normal = a-z // reverse = z-a)
 const titleSorting = (items, order = "normal") => {
@@ -45,18 +34,8 @@ const titleSorting = (items, order = "normal") => {
   }
 };
 
-//10-0
-const ratingSorting = (items) => {
-  items.sort((a, b) => a.vote_average - b.vote_average).reverse();
-};
-
-//0-10
-const reverseRatingSorting = (items) => {
-  items.sort((a, b) => a.vote_average - b.vote_average);
-};
-
 //Sorting Choice Event Listener
-document.querySelector("#movie-sorting").addEventListener("click", (e) => {
+document.querySelector("#item-sorting").addEventListener("click", (e) => {
   let sortState = e.target.id.toLowerCase();
   if (sortState === "alphabetical") {
     getShows().then((items) => {
@@ -87,9 +66,6 @@ document.querySelector("#search-movies").addEventListener("input", (e) => {
   filters.searchText = e.target.value;
   tvShowRequest();
 });
-
-//Event listener for clearing cart
-clearCartDOM();
 
 //Previous Page in the API Call
 document.querySelector("#previous-page").addEventListener("click", () => {

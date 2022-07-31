@@ -1,21 +1,14 @@
-//Website Filters
-const filters = {
-  searchText: "",
-};
-
 // Rendering Function
 const renderItems = (items, filters) => {
   const filteredItems = items.filter((item) => {
-    return item.title
-      .toLowerCase()
-      .includes(filters.searchText.toLowerCase())
+    return item.title.toLowerCase().includes(filters.searchText.toLowerCase());
   });
 
   document.getElementById("item-div").innerHTML = "";
 
   filteredItems.forEach((item) => {
     //Run the DOM Generating Function for each item in the API response
-    renderItemDOM(item,'movie');
+    renderItemDOM(item, "movie");
   });
 };
 
@@ -27,37 +20,9 @@ const movieRequest = () => {
 };
 movieRequest();
 
-cartCheckoutDOM(rentingCart);
-
-
-
-//Title sorting function (normal = a-z // reverse = z-a)
-const titleSorting = (items, order = "normal") => {
-  if (order === "normal") {
-    items.sort((a, b) => {
-      return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1;
-    });
-  }
-  if (order === "reverse") {
-    items.sort((a, b) => {
-      return a.title.toLowerCase() > b.title.toLowerCase() ? -1 : 1;
-    });
-  }
-};
-
-//10-0
-const ratingSorting = (items) => {
-  items.sort((a, b) => a.vote_average - b.vote_average).reverse();
-};
-
-//0-10
-const reverseRatingSorting = (items) => {
-  items.sort((a, b) => a.vote_average - b.vote_average);
-};
-
 //Sorting Choice Event Listener
-document.querySelector("#movie-sorting").addEventListener("click", (e) => {
-  let sortState = e.target.id.toLowerCase()
+document.querySelector("#item-sorting").addEventListener("click", (e) => {
+  let sortState = e.target.id.toLowerCase();
   if (sortState === "alphabetical") {
     getMovies().then((items) => {
       //alphabeticalSorting(movies)
@@ -89,11 +54,6 @@ document.querySelector("#search-movies").addEventListener("input", (e) => {
   movieRequest();
 });
 
-
-
-//Event listener for clearing cart
-clearCartDOM();
-
 //Previous Page in the API Call
 document.querySelector("#previous-page").addEventListener("click", () => {
   moviePageNumber--;
@@ -105,4 +65,3 @@ document.querySelector("#next-page").addEventListener("click", () => {
   moviePageNumber++;
   movieRequest();
 });
-
