@@ -19,6 +19,19 @@ const movieRequest = () => {
   });
 };
 movieRequest();
+//Title sorting function (normal = a-z // reverse = z-a)
+const titleSorting = (items, order = "normal") => {
+  if (order === "normal") {
+    items.sort((a, b) => {
+      return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1;
+    });
+  }
+  if (order === "reverse") {
+    items.sort((a, b) => {
+      return a.title.toLowerCase() > b.title.toLowerCase() ? -1 : 1;
+    });
+  }
+};
 
 //Sorting Choice Event Listener
 document.querySelector("#item-sorting").addEventListener("click", (e) => {
