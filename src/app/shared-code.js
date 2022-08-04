@@ -1,10 +1,12 @@
+//import * as bootstrap from "bootstrap";
+import { Toast } from "bootstrap";
 //Website Filters
-const filters = {
+export const filters = {
   searchText: "",
 };
 
 //Getting Renting Cart
-const getRentingCart = () => {
+export const getRentingCart = () => {
   const rentingCartJSON = localStorage.getItem("renting-cart");
   if (rentingCartJSON !== null) {
     return JSON.parse(rentingCartJSON);
@@ -12,15 +14,15 @@ const getRentingCart = () => {
     return [];
   }
 };
-let rentingCart = getRentingCart();
+export let rentingCart = getRentingCart();
 
 //Saving Renting Cart to Local Storage
-const saveRentingCart = (cart) => {
+export const saveRentingCart = (cart) => {
   localStorage.setItem("renting-cart", JSON.stringify(cart));
 };
 
-//Cart Checkout
-const cartCheckoutDOM = (cart) => {
+//Cart Checkout (NO DEPENDENCY)
+export const cartCheckoutDOM = (cart) => {
   const cartEl = document.getElementById("current-cart"); //Renting Cart
   cartEl.textContent = `Checkout: (${cart.length})items`; //Renting Checkout Message
   if (!localStorage.getItem("renting-cart")) {
@@ -30,8 +32,8 @@ const cartCheckoutDOM = (cart) => {
 cartCheckoutDOM(rentingCart);
 //Adding new movies to the renting cart
 
-//Event listener for clearing cart
-const clearCartDOM = () => {
+//Event listener for clearing cart (NO DEPENDENCY)
+export const clearCartDOM = () => {
   document.querySelector("#clear-cart").addEventListener("click", () => {
     localStorage.removeItem("renting-cart");
     rentingCart = [];
@@ -40,8 +42,9 @@ const clearCartDOM = () => {
 };
 
 clearCartDOM();
-//Item Toast Alert renderer
-const toastRenderer = (state) => {
+
+//Item Toast Alert renderer (NO DEPENDENCY)
+export const toastRenderer = (state) => {
   document.getElementById("toast-div").innerHTML = "";
   const bodyDiv = document.getElementById("toast-div");
 
@@ -87,11 +90,11 @@ const toastRenderer = (state) => {
   toastContentDiv.appendChild(closingBtn);
 
   const toastLiveExample = document.getElementById("liveToast");
-  const toast = new bootstrap.Toast(toastLiveExample);
+  const toast = new Toast(toastLiveExample);
   toast.show();
 };
-//Pushing item onto cart
-const cartPushing = (movie) => {
+//Pushing item onto cart (NO DEPENDENCY)
+export const cartPushing = (movie) => {
   const id = movie.id;
   const idCheck = rentingCart.some((movie) => {
     return movie.id === id;
@@ -106,11 +109,10 @@ const cartPushing = (movie) => {
   }
   if (idCheck) {
     toastRenderer("added");
-    console.log("item already in cart");
   }
 };
 
-const domCard = (item, type) => {
+export const domCard = (item, type) => {
   const wrapperDiv = document.getElementById("wrapper-div");
 
   const cardDiv = document.createElement("div");
@@ -178,7 +180,7 @@ const domCard = (item, type) => {
   return wrapperDiv;
 };
 
-const clearCart = () => {
+export const clearCart = () => {
   document.querySelector("#clear-cart").addEventListener("click", () => {
     localStorage.removeItem("renting-cart");
     rentingCart = [];
@@ -186,7 +188,7 @@ const clearCart = () => {
   });
 };
 
-const renderItemDOM = (item, type) => {
+export const renderItemDOM = (item, type) => {
   const renderingDiv = document.getElementById("item-div");
 
   const elementDiv = document.createElement("div");
@@ -268,11 +270,11 @@ const renderItemDOM = (item, type) => {
 };
 
 //10-0
-const ratingSorting = (items) => {
+export const ratingSorting = (items) => {
   items.sort((a, b) => a.vote_average - b.vote_average).reverse();
 };
 
 //0-10
-const reverseRatingSorting = (items) => {
+export const reverseRatingSorting = (items) => {
   items.sort((a, b) => a.vote_average - b.vote_average);
 };

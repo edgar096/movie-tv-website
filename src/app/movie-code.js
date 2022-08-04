@@ -1,4 +1,25 @@
-// Rendering Function
+import {
+  filters,
+  renderItemDOM,
+  ratingSorting,
+  reverseRatingSorting,
+} from "./shared-code.js";
+import "../styles/main.scss";
+
+let moviePageNumber = 1;
+const getMovies = async () => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=360102dcfe47ebec07cd40463cf86c02&count=10&page=${moviePageNumber}`
+    );
+    const { results } = await response.json();
+    return results;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+//Rendering Function
 const renderItems = (items, filters) => {
   const filteredItems = items.filter((item) => {
     return item.title.toLowerCase().includes(filters.searchText.toLowerCase());
