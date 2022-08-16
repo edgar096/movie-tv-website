@@ -1,48 +1,52 @@
-#poster{
+@import "~bootstrap/scss/bootstrap";
+
+#poster {
   max-width: 300px;
   height: auto;
 }
 
-#card-div{
-  max-width: 1200px; 
+#card-div {
+  max-width: 1200px;
   height: auto;
 }
 
-
 /* Change to card-div */
-#movie-card-div{ 
-  max-width: 1200px; 
+
+#movie-card-div {
+  max-width: 1200px;
 }
 
-@media(max-width:767px){
-  #movie-card-div{
-    max-width: 500px; 
+@media (max-width: 767px) {
+  #movie-card-div {
+    max-width: 500px;
   }
 }
-#movie-header{
+
+#movie-header {
   height: 30px;
 }
+
 a:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
-#movie-renderer{
-  padding-left:200px
+#movie-renderer {
+  padding-left: 200px;
 }
 
-@media(max-width:1700px){
-  #movie-sidebar-container{
-    display: none
+@media (max-width: 1700px) {
+  #movie-sidebar-container {
+    display: none;
   }
-  #movie-renderer{
-    padding-left:0px
+
+  #movie-renderer {
+    padding-left: 0px;
   }
 }
 
-#current-cart{
-  padding-left:20px
+#current-cart {
+  padding-left: 20px;
 }
-
 
 body {
   min-height: 75rem;
@@ -63,50 +67,51 @@ main {
   overflow-y: hidden;
 }
 
-.dropdown-toggle { outline: 0; }
+.dropdown-toggle {
+  outline: 0;
+}
 
 .btn-toggle {
   padding: .25rem .5rem;
   font-weight: 600;
-  color: rgba(0, 0, 0, .65);
+  color: rgba(0, 0, 0, 0.65);
   background-color: transparent;
-}
-.btn-toggle:hover,
-.btn-toggle:focus {
-  color: rgba(0, 0, 0, .85);
-  background-color: #a5caf3;
-}
 
-.btn-toggle::before {
-  width: 1.25em;
-  line-height: 0;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  transition: transform .35s ease;
-  transform-origin: .5em 50%;
-}
+  &:hover, &:focus {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #a5caf3;
+  }
 
-.btn-toggle[aria-expanded="true"] {
-  color: rgba(0, 0, 0, .85);
-}
-.btn-toggle[aria-expanded="true"]::before {
-  transform: rotate(90deg);
+  &::before {
+    width: 1.25em;
+    line-height: 0;
+    content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+    transition: transform .35s ease;
+    transform-origin: .5em 50%;
+  }
+
+  &[aria-expanded="true"] {
+    color: rgba(0, 0, 0, 0.85);
+
+    &::before {
+      transform: rotate(90deg);
+    }
+  }
 }
 
 .btn-toggle-nav a {
   padding: .1875rem .5rem;
   margin-top: .125rem;
   margin-left: 1.25rem;
-}
-.btn-toggle-nav a:hover,
-.btn-toggle-nav a:focus {
-  background-color: #a5caf3;
+
+  &:hover, &:focus {
+    background-color: #a5caf3;
+  }
 }
 
 .scrollarea {
   overflow-y: auto;
 }
-
-
 
 body {
   padding-top: 3rem;
@@ -114,36 +119,36 @@ body {
   color: #5a5a5a;
 }
 
-
-
 /* Carousel base class */
+
 .carousel {
   margin-bottom: 4rem;
 }
+
 /* Since positioning the image, we need to help out the caption */
+
 .carousel-caption {
   bottom: 3rem;
   z-index: 10;
 }
 
 /* Declare heights because of positioning of img element */
+
 .carousel-item {
   height: 32rem;
 }
 
-
 /* Center align the text within the three columns below the carousel */
+
 .marketing .col-lg-4 {
   margin-bottom: 1.5rem;
   text-align: center;
+
+  p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
 }
-
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
-
-
 
 .featurette-divider {
   margin: 5rem 0;
@@ -152,8 +157,6 @@ body {
 .featurette-heading {
   letter-spacing: -.05rem;
 }
-
-
 
 @media (min-width: 40em) {
   .carousel-caption p {
